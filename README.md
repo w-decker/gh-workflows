@@ -1,4 +1,5 @@
 # gh-workflows
+
 Bash scripts for git/GitHub workflows
 
 ## Barebones Initialization
@@ -18,9 +19,7 @@ This should initialize the code to your profile.
 Barebones is specifically for creating an empty git repository that automatically pushes to GitHub. It is a _basic_ repo. Below is an example of using the barebones command.
 
 ```bash
-$ barebones -fn my_folder -un w-decker
+$ barebones -f <foldername> -u <username>
 ```
-`barebones` takes two keyword arguments: `-fn` and `-un` which mean file/folder name and GitHub username respectively.
 
-
-
+`barebones` takes two keyword arguments: `-f` and `-u` which mean file/folder name and GitHub username respectively.
