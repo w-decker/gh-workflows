@@ -5,15 +5,23 @@ username="" # username variable
 
 
 # parse inputs
-while getopts ":fn:un" opt; do
+while getopts ":f:u:" opt; do
 	case $opt in
-	fn) foldername="$OPTARG" ;;
-	un) username="$OPTARG" ;;
+	f) foldername="$OPTARG" ;;
+	u) username="$OPTARG" ;;
 	esac
 done
 
 # git function
-mkdir $foldername
-git init $foldername #initialize
-gh repo create $foldername --public --add-readme
-git remote add origin https://github.com/$username/$foldername.git
+gitdo(){
+    mkdir $foldername
+    git init $foldername #initialize
+    cd $foldername
+    gh repo create $foldername --public --add-readme
+    git remote add origin https://github.com/$username/$foldername.git
+    echo A new GitHub repo was created in $(pwd) by $username called $foldername.
+}
+
+gitdo
+
+
