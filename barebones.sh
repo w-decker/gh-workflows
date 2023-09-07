@@ -3,11 +3,6 @@
 foldername="" # filename variable
 username="" # username variable
 
-# usage function
-usage(){
-	echo "Usage: $0 -fn <foldername> -un <username>"
-	exit 1
-}
 
 # parse inputs
 while getopts ":fn:un" opt; do
@@ -17,11 +12,8 @@ while getopts ":fn:un" opt; do
 	esac
 done
 
-# assign
-if [[ -z "$foldername" || -z "$username" ]]; then
-    usage
-fi
-
-git init # initialize
+# git function
+mkdir $foldername
+git init $foldername #initialize
 gh repo create $foldername --public --add-readme
-git remote add origin https://github.com/$username/$foldername.git 
+git remote add origin https://github.com/$username/$foldername.git
