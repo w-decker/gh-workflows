@@ -20,6 +20,7 @@ gitdo(){
     gh repo create $foldername --public --add-readme
     git remote add origin https://github.com/$username/$foldername.git
     echo A new GitHub repo was created in $(pwd) by $username called $foldername.
+    git pull origin main
 }
 
 gitdo
